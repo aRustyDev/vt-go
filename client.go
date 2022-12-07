@@ -298,7 +298,7 @@ func (cli *Client) PostObject(url *url.URL, obj *Object, options ...RequestOptio
 func (cli *Client) GetObject(url *url.URL, options ...RequestOption) (*Object, error) {
 	obj := &Object{}
 	if _, err := cli.GetData(url, obj, options...); err != nil {
-		return nil, err
+		return obj, err
 	}
 	return obj, nil
 }

@@ -154,7 +154,7 @@ func (cli *Client) Get(url *url.URL, options ...RequestOption) (*Response, error
 	o := opts(options...)
 	httpResp, err := cli.sendRequest("GET", url, nil, o.headers)
 	if err != nil {
-		return nil, err
+		return httpResp, err
 	}
 	defer httpResp.Body.Close()
 	return cli.parseResponse(httpResp)

@@ -225,7 +225,7 @@ func (cli *Client) Delete(url *url.URL, options ...RequestOption) (*Response, er
 func (cli *Client) GetData(url *url.URL, target interface{}, options ...RequestOption) (*Response, error) {
 	resp, err := cli.Get(url, options...)
 	if err != nil {
-		return nil, err
+		return obj, err
 	}
 	decoder := json.NewDecoder(bytes.NewReader(resp.Data))
 	decoder.UseNumber()
